@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h3>手机号码列表</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>联系人</th>
+      <th>手机号码</th>
+      <th colspan="3">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phones.each do |phone| %>
+      <tr>
+				<td><%= phone.contact.name rescue "手机号还没有关联的联系人" %></td>
+        <td><%= phone.phone_number %></td>
+        <td><%= link_to '查看', phone %></td>
+        <td><%= link_to '编辑', edit_phone_path(phone) %></td>
+        <td><%= link_to '删除', phone, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建手机号码', new_phone_path, class: "btn btn-default" %>
+<br>
+<%= paginate @phones %>

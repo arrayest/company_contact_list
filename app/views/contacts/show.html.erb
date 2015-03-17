@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>联系人:</strong>
+  <%= @contact.name %>
+</p>
+
+<p>
+  <strong>联系人所在公司:</strong>
+	<%= @contact.company.name rescue "联系人还没有所在公司" %>
+</p>
+
+<p>
+  <strong>联系人所在公司部门:</strong>
+	<%= @contact.department.name rescue "联系人还没有所在公司部门" %>
+</p>
+
+<%= link_to '编辑', edit_contact_path(@contact), class: "btn btn-default" %> |
+<%= link_to '返回', contacts_path, class: "btn btn-default" %>

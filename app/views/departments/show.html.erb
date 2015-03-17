@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>部门名称:</strong>
+  <%= @department.name %>
+</p>
+
+<p>
+  <strong>公司:</strong>
+	<%= @department.company.name rescue "部门还不属于某个公司" %>
+</p>
+
+<p>
+  <strong>上级部门:</strong>
+  <%= @department.parent_id || "无上级部门"%>
+</p>
+
+<%= link_to '编辑', edit_department_path(@department), class: "btn btn-default" %> |
+<%= link_to '返回', departments_path, class: "btn btn-default" %>

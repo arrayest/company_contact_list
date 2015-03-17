@@ -1,0 +1,33 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h3>公司列表</h3>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>公司名称</th>
+			<th colspan="5">操作</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @companies.each do |company| %>
+			<tr>
+				<td><%= company.name %></td>
+				<td><%= link_to '查看公司', company %></td>
+				<td><%= link_to '查看组织架构', company %></td>
+				<td><%= link_to '查看联系人', company %></td>
+				<td><%= link_to '编辑', edit_company_path(company) %></td>
+				<td><%= link_to '删除', company, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to '新建公司', new_company_path, class: "btn btn-default" %>
+</div>
+<br>
+<%= paginate @companies %>

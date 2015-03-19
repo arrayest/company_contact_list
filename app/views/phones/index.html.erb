@@ -1,6 +1,14 @@
-<p id="notice"><%= notice %></p>
-
+<p id="notice"><%= notice %></p> 
 <h3>手机号码列表</h3>
+<div class="form-group">
+  <%= search_form_for @q, class: "form-inline" do |f| %>
+    <div class="form-group">
+      <%= f.label :手机号%>
+      <%= f.search_field :phone_number_cont, class: "form-control" %>
+      <%= f.submit "查询", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
 
 <table class="table table-bordered">
   <thead>

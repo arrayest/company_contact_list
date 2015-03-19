@@ -56,3 +56,4 @@ gem 'rspec-rails'
 gem 'cucumber-rails', :require => false
 gem 'kaminari'
 gem 'ransack'
+gem 'grape'

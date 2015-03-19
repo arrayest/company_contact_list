@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
   belongs_to :company
   belongs_to :department
+	has_many :phones
 end

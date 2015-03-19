@@ -39,8 +39,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   #gem 'byebug'
+	gem 'pry'
 	gem 'pry-rails'
-	gem 'pry-nav'
 	gem 'pry-remote'
 	gem 'pry-byebug'
 
@@ -57,3 +57,4 @@ gem 'cucumber-rails', :require => false
 gem 'kaminari'
 gem 'ransack'
 gem 'grape'
+gem 'hashie_rails'

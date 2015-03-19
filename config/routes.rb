@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	require 'api'
+
   get 'welcome/about'
 
   resources :phones
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   resources :departments
 
   resources :companies
+
+	mount CompanyContact::API => '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

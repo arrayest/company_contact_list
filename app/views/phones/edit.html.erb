@@ -1,6 +1,31 @@
 <h1>编辑手机号码</h1>
 
-<%= render 'form' %>
+<%= form_for(@phone) do |f| %>
+  <% if @phone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phone.errors.count, "error") %> prohibited this phone from being saved:</h2>
+
+      <ul>
+        <% @phone.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact_id, "联系人" %><br>
+    <%= @phone.contact.name rescue "没有联系人" %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number, "手机号码" %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit "提交", class: "btn btn-default" %>
+  </div>
+<% end %>
+
 
 <%= link_to '查看', @phone, class: "btn btn-default" %> |
 <%= link_to '返回', phones_path, class: "btn btn-default" %>

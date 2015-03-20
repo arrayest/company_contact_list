@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :contact_id, "联系人" %><br>
-		<%= @phone.contact.name rescue "没有联系人" %>
+    <%= f.text_field :contact_id %>
   </div>
   <div class="field">
     <%= f.label :phone_number, "手机号码" %><br>

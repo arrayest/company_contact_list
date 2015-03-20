@@ -4,7 +4,8 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-		@companies = Company.all.page params[:page]
+    @q = Company.ransack(params[:q])
+    @companies = @q.result.page(params[:page])
   end
 
   # GET /companies/1

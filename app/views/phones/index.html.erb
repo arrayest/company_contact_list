@@ -3,7 +3,7 @@
 <div class="form-group">
   <%= search_form_for @q, class: "form-inline" do |f| %>
     <div class="form-group">
-      <%= f.label :手机号%>
+      <%= f.label :phone_number_cont, :手机号%>
       <%= f.search_field :phone_number_cont, class: "form-control" %>
       <%= f.submit "查询", class: "btn btn-default" %>
     </div>

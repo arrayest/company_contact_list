@@ -2,6 +2,15 @@
 <p id="notice"><%= notice %></p>
 
 <h3>公司列表</h3>
+<div class="form-group">
+  <%= search_form_for @q, class: "form-inline" do |f| %>
+    <div class="form-group">
+      <%= f.label :name_cont, :公司名 %>
+      <%= f.search_field :name_cont, class: "form-control" %>
+      <%= f.submit "查询", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
 
 <table class="table table-bordered">
 	<thead>

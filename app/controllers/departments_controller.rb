@@ -4,7 +4,8 @@ class DepartmentsController < ApplicationController
   # GET /departments
   # GET /departments.json
   def index
-		@departments = Department.all.page params[:page]
+    @q = Department.ransack(params[:q])
+    @departments = @q.result.page(params[:page])
   end
 
   # GET /departments/1

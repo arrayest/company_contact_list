@@ -4,7 +4,8 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-		@contacts = Contact.all.page params[:page]
+		@q = Contact.ransack(params[:q])
+    @contacts = @q.result.page(params[:page])
   end
 
   # GET /contacts/1

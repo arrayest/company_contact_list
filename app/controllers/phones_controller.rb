@@ -3,9 +3,9 @@ class PhonesController < ApplicationController
 
   # GET /phones
   # GET /phones.json
-	def index
-		@q= Phone.ransack(params[:q])
-		@phones = @q.result.page params[:page]
+  def index
+    @q= Phone.ransack(params[:q])
+    @phones = @q.result.page(params[:page])
   end
 
   # GET /phones/1

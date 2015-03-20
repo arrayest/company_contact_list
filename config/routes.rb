@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   resources :departments
 
-  resources :companies
+  resources :companies do
+    member do
+      get :departments
+    end
+  end
 
 	mount CompanyContact::API => '/'
 

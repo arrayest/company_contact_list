@@ -1,0 +1,31 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h3>公司组织架构</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>公司名称</th>
+      <th>部门</th>
+      <th>上级部门</th>
+      <th colspan="2">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |d| %>
+      <tr>
+        <td><%= d.company.name %></td>
+        <td><%= d.name %></td>
+        <td><%= d.department.name rescue '无上级部门' %></td>
+        <td><%= link_to '编辑', edit_department_path(d) %></td>
+        <td><%= link_to '删除', d, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>

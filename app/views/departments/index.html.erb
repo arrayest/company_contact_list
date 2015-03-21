@@ -26,7 +26,7 @@
       <tr>
         <td><%= department.name %></td>
 				<td><%= department.company.name rescue "部门还不属于某个公司" %></td>
-        <td><%= department.parent_id || "无上级部门" %></td>
+        <td><%= department.department.name rescue "无上级部门" %></td>
         <td><%= link_to '查看', department %></td>
         <td><%= link_to '编辑', edit_department_path(department) %></td>
         <td><%= link_to '删除', department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>

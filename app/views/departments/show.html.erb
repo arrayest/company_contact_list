@@ -12,7 +12,7 @@
 
 <p>
   <strong>上级部门:</strong>
-  <%= @department.parent_id || "无上级部门"%>
+  <%= @department.department.name rescue "无上级部门"%>
 </p>
 
 <%= link_to '编辑', edit_department_path(@department), class: "btn btn-default" %> |

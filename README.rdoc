@@ -34,8 +34,8 @@ Things you may want to cover:
 
 * GET http://localhost:3000/api/contacts/:contact
 
-* eg: http://localhost:3000/api/contacts/t95
+* eg: http://localhost:3000/api/contacts/t9
 
 * GET http://localhost:3000/api/phones/:phone
 
-* eg: http://localhost:3000/api/phones/0001
+* eg: http://localhost:3000/api/phones/10001

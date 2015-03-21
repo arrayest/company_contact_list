@@ -19,11 +19,11 @@
     </div>
     <div class="field">
       <%= f.label :company_id, "公司" %><br>
-      <%= f.select :company_id, options_from_collection_for_select(@companies, "id", "name", (@department.company.id rescue '1')), {}, class: "form-control" %>
+      <%= f.select :company_id, options_from_collection_for_select(@companies, "id", "name", (@department.company.id rescue '1')), {prompt: "请选择部门所在公司"}, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :parent_id, "上级部门" %><br>
-      <%= f.select :parent_id, options_from_collection_for_select(@departments, "id", "name", (@department.department.id rescue nil)), {include_blank: true}, class: "form-control" %>
+      <%= f.select :parent_id, options_from_collection_for_select(@departments, "id", "name", (@department.department.id rescue nil)), {prompt: "请选择部门的上级部门", include_blank: true}, class: "form-control" %>
     </div>
     <div class="actions">
       <%= f.submit "提交", class: "btn btn-default" %>

@@ -16,10 +16,14 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+    @companies = Company.all
+    @departments = Department.all
   end
 
   # GET /contacts/1/edit
   def edit
+    @companies = Company.all
+    @departments = @contact.company.departments
   end
 
   # POST /contacts

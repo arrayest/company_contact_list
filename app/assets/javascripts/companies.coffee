@@ -11,3 +11,11 @@ $ ->
         errorClass: 'validate-info-error',
         onsubmit: true
       });
+  $edit_company_validator = $("form[id^='edit_company']").validate({
+        rules: {
+          "company[name]": {required: true}
+        },
+        errorElement: 'span',
+        errorClass: 'validate-info-error',
+        onsubmit: true
+      });

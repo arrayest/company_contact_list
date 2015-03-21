@@ -16,10 +16,12 @@ class PhonesController < ApplicationController
   # GET /phones/new
   def new
     @phone = Phone.new
+    @contacts = Contact.all
   end
 
   # GET /phones/1/edit
   def edit
+    @contacts = Contact.all
   end
 
   # POST /phones

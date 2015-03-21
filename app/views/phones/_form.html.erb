@@ -15,7 +15,7 @@
 
     <div class="field">
       <%= f.label :contact_id, "联系人" %><br>
-      <%= f.text_field :contact_id, class: "form-control" %>
+      <%= f.select :contact_id, options_from_collection_for_select(@contacts, "id", "name", (@contact.id rescue nil)), {prompt: "请选择联系人"}, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :phone_number, "手机号码" %><br>

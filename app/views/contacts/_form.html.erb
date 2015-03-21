@@ -19,11 +19,11 @@
     </div>
     <div class="field">
       <%= f.label :company_id, "联系人所在公司" %><br>
-      <%= f.select :company_id, options_from_collection_for_select(@companies, "id", "name", (@contact.company.id rescue '1')), {prompt: "请选择联系人所在公司"}, class: "form-control" %>
+      <%= f.select :company_id, options_from_collection_for_select(@companies, "id", "name", (@contact.company.id rescue nil)), {prompt: "请选择联系人所在公司"}, onchange: "set_company_departments(this.value)", class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :department_id, "联系人所在公司部门" %><br>
-      <%= f.select :department_id, options_from_collection_for_select(@departments, "id", "name", (@contact.department.id rescue nil)), {prompt: "请选择联系人所在部门", include_blank: true}, class: "form-control" %>
+      <%= f.select :department_id, options_from_collection_for_select(@departments, "id", "name", (@contact.department.id rescue nil)), {prompt: "请选择联系人所在部门"}, class: "form-control" %>
     </div>
     <div class="actions">
       <%= f.submit "提交", class: "btn btn-default" %>
@@ -31,3 +31,21 @@
   <% end %>
   </div>
 </div>
+<script type="text/javascript">
+function set_company_departments(value){
+  if(value != ""){
+    $.ajax({
+      type: "POST",
+      url: "/companies/" + value + "/set_company_departments",
+      data: 'text',
+      success: function(data){
+        $('#contact_department_id').html(data);
+      }
+    })
+  }
+  else {
+    $('#contact_department_id').html('<option value="">请选择联系人所在部门</option>');
+  }
+}
+</script>
+

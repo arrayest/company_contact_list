@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @companies = Company.all
-    @departments = Department.all
+    @departments = []
   end
 
   # GET /contacts/1/edit

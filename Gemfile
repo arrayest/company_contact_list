@@ -57,5 +57,5 @@ gem 'cucumber-rails', :require => false
 gem 'kaminari'
 gem 'ransack'
 gem 'grape'
-gem 'hashie_rails'
+gem 'hashie-forbidden_attributes'
 gem 'jquery-validation-rails'

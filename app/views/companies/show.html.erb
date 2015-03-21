@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<div class="btn-group">
+  <%= link_to '编辑', edit_company_path(@company), class: "btn btn-default" %>
+  <%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
 
 <p>
   <strong>公司名:</strong>
@@ -31,6 +35,3 @@
   </table>
 
 </p>
-
-<%= link_to '编辑', edit_company_path(@company), class: "btn btn-default" %> |
-<%= link_to '返回', companies_path, class: "btn btn-default" %>

@@ -1,6 +1,7 @@
-<div class="container">
 <p id="notice"><%= notice %></p>
-
+<div class="btn-group">
+<%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
 <h3>公司联系人</h3>
 
 <table class="table table-bordered">
@@ -27,7 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to '返回', :back, class: "btn btn-default" %>
-</div>

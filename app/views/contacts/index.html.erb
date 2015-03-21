@@ -18,7 +18,7 @@
       <th>手机号码</th>
       <th>联系人所在公司</th>
       <th>联系人所在公司部门</th>
-      <th colspan="3">操作</th>
+      <th colspan="2">操作</th>
     </tr>
   </thead>
 
@@ -30,7 +30,6 @@
 				<td><%= contact.company.name rescue "联系人还没有所在公司" %></td>
 				<td><%= contact.department.name rescue "联第人还没有所在公司部门" %></td>
         <td><%= link_to '查看', contact %></td>
-        <td><%= link_to '编辑', edit_contact_path(contact) %></td>
         <td><%= link_to '删除', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>

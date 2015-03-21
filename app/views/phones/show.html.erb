@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<div class="btn-group">
+  <%= link_to '编辑', edit_phone_path(@phone), class: "btn btn-default" %>
+  <%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
 
 <p>
   <strong>联系人:</strong>
@@ -9,6 +13,3 @@
   <strong>手机号:</strong>
   <%= @phone.phone_number %>
 </p>
-
-<%= link_to '编辑', edit_phone_path(@phone), class: "btn btn-default" %> |
-<%= link_to '返回', phones_path, class: "btn btn-default" %>

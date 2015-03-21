@@ -1,7 +1,9 @@
-<div class="container">
 <p id="notice"><%= notice %></p>
+<div class="btn-group">
+  <%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
 
-<h3>公司联系人</h3>
+<h3>公司部门联系人</h3>
 
 <table class="table table-bordered">
   <thead>
@@ -21,13 +23,9 @@
         <td><%= c.phones.map {|p| p.phone_number}.join(",") rescue "" %></td>
         <td><%= c.company.name %></td>
         <td><%= c.department.name rescue '没有部门' %></td>
-        <td><%= link_to '编辑', edit_contact_path(c) %></td>
+        <td><%= link_to '查看', contact_path(c) %></td>
         <td><%= link_to '删除', c, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to '返回', :back, class: "btn btn-default" %>
-</div>

@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="btn-group">
+  <%= link_to '编辑', edit_department_path(@department), class: "btn btn-default" %>
+  <%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
 <p>
   <strong>部门名称:</strong>
   <%= @department.name %>
@@ -15,5 +18,7 @@
   <%= @department.department.name rescue "无上级部门"%>
 </p>
 
-<%= link_to '编辑', edit_department_path(@department), class: "btn btn-default" %> |
-<%= link_to '返回', departments_path, class: "btn btn-default" %>
+<p>
+  <strong>公司所有部门:</strong>
+  <%= @department.company.departments.map {|d| d.name}.join(",") %>
+</p>

@@ -1,6 +1,7 @@
-<h1>编辑组织架构</h1>
+<div class="btn-group">
+  <%= link_to '查看', @department, class: "btn btn-default" %>
+  <%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
+<h3>编辑组织架构</h3>
 
 <%= render 'form' %>
-
-<%= link_to '查看', @department, class: "btn btn-default" %> |
-<%= link_to '返回', :back, class: "btn btn-default" %>

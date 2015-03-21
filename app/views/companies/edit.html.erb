@@ -1,6 +1,7 @@
-<h1>编辑公司</h1>
+<div class="btn-group">
+  <%= link_to '查看', @company, class: "btn btn-default" %>
+  <%= link_to '返回', :back, class: "btn btn-default" %>
+</div>
+<h3>编辑公司</h3>
 
 <%= render 'form' %>
-
-<%= link_to '查看', @company, class: "btn btn-default" %> |
-<%= link_to '返回', companies_path, class: "btn btn-default" %>

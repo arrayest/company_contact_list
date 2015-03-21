@@ -16,17 +16,20 @@ class DepartmentsController < ApplicationController
   # GET /departments/new
   def new
     @department = Department.new
+    @companies = Company.all
+    @departments = []
   end
 
   # GET /departments/1/edit
   def edit
+    @companies = Company.all
+    @departments = @department.company.departments
   end
 
   # POST /departments
   # POST /departments.json
   def create
     @department = Department.new(department_params)
-
     respond_to do |format|
       if @department.save
         format.html { redirect_to @department, notice: 'Department was successfully created.' }

@@ -1,29 +1,33 @@
-<%= form_for(@department) do |f| %>
-  <% if @department.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
+<div class="form-group">
+<%= form_for(@department, html: {class: "form-inline"}) do |f| %>
+  <div class="form-group">
+    <% if @department.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
 
-      <ul>
-      <% @department.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @department.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name, "部门名称" %><br>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name, "部门名称" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :company_id, "公司" %><br>
-    <%= f.text_field :company_id %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_id, "上级部门" %><br>
-    <%= f.number_field :parent_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit "提交", class: "btn btn-default" %>
+    <div class="field">
+      <%= f.label :company_id, "公司" %><br>
+      <%= f.select :company_id, options_from_collection_for_select(@companies, "id", "name", (@department.company.id rescue '1')), {}, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :parent_id, "上级部门" %><br>
+      <%= f.select :parent_id, options_from_collection_for_select(@departments, "id", "name", (@department.department.id rescue nil)), {include_blank: true}, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "提交", class: "btn btn-default" %>
+    </div>
   </div>
 <% end %>
+</div>

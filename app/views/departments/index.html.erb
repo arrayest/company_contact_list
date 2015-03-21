@@ -17,7 +17,7 @@
       <th>部门名称</th>
       <th>公司名称</th>
       <th>上级部门</th>
-      <th colspan="3">操作</th>
+      <th colspan="4">操作</th>
     </tr>
   </thead>
 
@@ -27,7 +27,8 @@
         <td><%= department.name %></td>
 				<td><%= department.company.name rescue "部门还不属于某个公司" %></td>
         <td><%= department.department.name rescue "无上级部门" %></td>
-        <td><%= link_to '查看', department %></td>
+        <td><%= link_to '查看部门', department %></td>
+        <td><%= link_to '查看部门联系人', contacts_department_path(department) %></td>
         <td><%= link_to '编辑', edit_department_path(department) %></td>
         <td><%= link_to '删除', department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>

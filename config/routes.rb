@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   resources :contacts
 
-  resources :departments
+  resources :departments do
+    member do
+      get :contacts
+    end
+  end
 
   resources :companies do
     member do

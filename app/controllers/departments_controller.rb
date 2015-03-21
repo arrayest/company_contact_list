@@ -23,7 +23,11 @@ class DepartmentsController < ApplicationController
   # GET /departments/1/edit
   def edit
     @companies = Company.all
-    @departments = @department.company.departments
+    if @department.company
+      @departments = @department.company.departments 
+    else
+      @departments = []
+    end
   end
 
   # POST /departments
@@ -35,6 +39,8 @@ class DepartmentsController < ApplicationController
         format.html { redirect_to @department, notice: 'Department was successfully created.' }
         format.json { render :show, status: :created, location: @department }
       else
+        @companies = Company.all
+        @departments = []
         format.html { render :new }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end
@@ -49,6 +55,8 @@ class DepartmentsController < ApplicationController
         format.html { redirect_to @department, notice: 'Department was successfully updated.' }
         format.json { render :show, status: :ok, location: @department }
       else
+        @companies = Company.all
+        @departments = []
         format.html { render :edit }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end

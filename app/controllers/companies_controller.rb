@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy, :departments, :contacts]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :departments, :contacts, :set_company_departments]
 
   # GET /companies
   # GET /companies.json
@@ -68,6 +68,15 @@ class CompaniesController < ApplicationController
   
   def contacts
     @contacts = @company.contacts
+  end
+
+  def set_company_departments
+    options = ""
+    @departments = @company.departments
+    @departments.each do |d|
+      options << "<option value=#{d.id}>#{d.name}</option>"
+    end
+    render text: options
   end
 
   private

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :companies do
     member do
       get :departments, :contacts
+      post :set_company_departments
     end
   end
 

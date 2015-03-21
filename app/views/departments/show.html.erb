@@ -20,5 +20,5 @@
 
 <p>
   <strong>公司所有部门:</strong>
-  <%= @department.company.departments.map {|d| d.name}.join(",") %>
+  <%= @department.company.departments.map {|d| d.name}.join(",") rescue nil %>
 </p>

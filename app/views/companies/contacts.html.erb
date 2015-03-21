@@ -1,0 +1,33 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h3>公司联系人</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>联系人</th>
+      <th>手机号码</th>
+      <th>公司名称</th>
+      <th>上级部门</th>
+      <th colspan="2">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |c| %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.phones.map {|p| p.phone_number}.join(",") rescue "" %></td>
+        <td><%= c.company.name %></td>
+        <td><%= c.department.name rescue '无上级部门' %></td>
+        <td><%= link_to '编辑', edit_contact_path(c) %></td>
+        <td><%= link_to '删除', c, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to '返回', :back, class: "btn btn-default" %>
+</div>

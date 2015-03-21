@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :companies do
     member do
-      get :departments
+      get :departments, :contacts
     end
   end
 

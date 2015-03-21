@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy, :departments]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :departments, :contacts]
 
   # GET /companies
   # GET /companies.json
@@ -66,6 +66,10 @@ class CompaniesController < ApplicationController
     @departments = @company.departments
   end
   
+  def contacts
+    @contacts = @company.contacts
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company

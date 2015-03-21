@@ -18,3 +18,12 @@
 .yield-content {
 	padding-top: 48px;
 }
+.validate-info-error {
+  color:red
+}
+label.required:before {
+  content: "*";
+  color:red;
+  left: 5px;
+  top: 5px;
+}

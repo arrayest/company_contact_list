@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap.min.js
+//= require jquery.validate
+//= require jquery.validate.localization/messages_zh

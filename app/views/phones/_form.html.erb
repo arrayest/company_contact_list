@@ -1,25 +1,29 @@
-<%= form_for(@phone) do |f| %>
-  <% if @phone.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@phone.errors.count, "error") %> prohibited this phone from being saved:</h2>
+<div class="form-group">
+<%= form_for(@phone, html: {class: "form-inline"}) do |f| %>
+  <div class="form-group">
+    <% if @phone.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@phone.errors.count, "error") %> prohibited this phone from being saved:</h2>
 
-      <ul>
-      <% @phone.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @phone.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :contact_id, "联系人" %><br>
+      <%= f.text_field :contact_id, class: "form-control" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :contact_id, "联系人" %><br>
-    <%= f.text_field :contact_id %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number, "手机号码" %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="actions">
-    <%= f.submit "提交", class: "btn btn-default" %>
+    <div class="field">
+      <%= f.label :phone_number, "手机号码" %><br>
+      <%= f.text_field :phone_number, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "提交", class: "btn btn-default" %>
+    </div>
   </div>
 <% end %>
+</div>
